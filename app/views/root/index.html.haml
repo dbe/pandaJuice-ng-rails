@@ -2,7 +2,13 @@
   %h1
     Home Page of Panda Juice
 
-  %input{"ng-model" => "oreo"}
-  {{ oreo }}
-
-  = current_sales_path
+  #current-sale
+    .sale{"ng-show" => "current_sale"}
+      %h2
+        Current Sale
+      %p
+        Start: {{ current_sale.start }}
+      %p
+        Finish: {{ current_sale.finish }}
+    .no-sale{"ng-show" => "!current_sale"}
+      Sorry, there is no sale going on

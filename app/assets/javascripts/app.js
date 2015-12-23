@@ -1,12 +1,12 @@
 console.log("In app.js");
+console.log(Routes.current_sales_path);
 
 var pjApp = angular.module('pjApp', [
     'ngResource'
 ]);
 
 pjApp.controller('pjController', ['$scope', '$resource', function($scope, $resource) {
-  $scope.oreo = "I'm Oreo";
-
-  $resource('/api/v1/sales/current').get({}, function(a, b) {
+  $resource(Routes.current_sales_path()).query({}, function(sales) {
+    $scope.current_sale = sales[0];
   });
 }]);
