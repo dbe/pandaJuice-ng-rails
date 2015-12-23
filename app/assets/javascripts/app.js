@@ -4,6 +4,9 @@ var pjApp = angular.module('pjApp', [
     'ngResource'
 ]);
 
-pjApp.controller('pjController', ['$scope', function($scope) {
+pjApp.controller('pjController', ['$scope', '$resource', function($scope, $resource) {
   $scope.oreo = "I'm Oreo";
+
+  $resource('/api/v1/sales/current').get({}, function(a, b) {
+  });
 }]);
