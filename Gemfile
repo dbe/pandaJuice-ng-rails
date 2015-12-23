@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.5'
 gem 'pg'
 gem 'haml-rails'
+gem 'angularjs-rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
