@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.5'
 gem 'pg'
 gem 'haml-rails'
-gem 'angularjs-rails'
 gem 'js-routes'
 gem 'devise'
 
@@ -18,7 +17,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+# gem 'jquery-rails'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'

@@ -16,5 +16,10 @@
     "vendor/assets/bower-components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "angular-bootstrap": "~0.14.3",
+    "angular-resource": "~1.4.8"
+  }
 }
