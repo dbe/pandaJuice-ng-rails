@@ -7,9 +7,15 @@ class Auth::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  #def create
-  #  super
-  #end
+  def create
+    print "Before super do"
+    byebug
+    super do |u|
+      print "In super do"
+      print u.inspect
+    end
+    print "After super do"
+  end
 
   # DELETE /resource/sign_out
   # def destroy
