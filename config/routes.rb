@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'root#index'
   scope :api do
     scope :v1 do
