@@ -5,6 +5,7 @@ gem 'pg'
 gem 'haml-rails'
 gem 'angularjs-rails'
 gem 'js-routes'
+gem 'devise'
 
 
 # Use SCSS for stylesheets
