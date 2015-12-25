@@ -2,7 +2,8 @@ console.log("In app.js");
 console.log(Routes.current_sales_path);
 
 var pjApp = angular.module('pjApp', [
-    'ngResource'
+    'ngResource',
+    'ui.router'
 ]);
 
 pjApp.controller('pjController', ['$scope', '$resource', function($scope, $resource) {
