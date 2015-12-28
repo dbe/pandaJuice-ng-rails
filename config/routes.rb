@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'root#index'
 
-  scope :api do
+  scope :api, defaults: {format: 'json'} do
     scope :v1 do
       devise_for :users, module: "auth"
 

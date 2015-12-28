@@ -13,10 +13,10 @@
 //= require angular
 //= require angular-resource
 //= require angular-ui-router
+//= require angular-restmod
 //
 //= require js-routes
 //
+//= require app
 //= require_tree .
 //= require_tree ./angular
-//
-//= require app
