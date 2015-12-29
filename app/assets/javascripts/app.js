@@ -22,7 +22,8 @@ pjApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     })
     .state('signup', {
       url: "/signup",
-      templateUrl: "assets/signup.html"
+      templateUrl: "assets/signup.html",
+      controller: 'signupController'
     });
 });
 
