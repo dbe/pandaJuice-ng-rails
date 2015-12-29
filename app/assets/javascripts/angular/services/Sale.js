@@ -8,8 +8,12 @@ angular.module('pjApp').factory('Sale', ['restmod', '$q', function(restmod, $q) 
             url: this.$url() + "/current",
             method: 'GET'
           }).$then(function(o) {
-            if(o.id === undefined) {
+            var data = o.$response.data;
+
+            if(data === null || data.id === undefined) {
               return $q.reject("No sales were found.");
+            } else {
+              this.$decode(data);
             }
           });
         }
