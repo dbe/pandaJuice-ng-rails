@@ -1,5 +1,8 @@
 class SalesController < ApplicationController
+  respond_to :json
+
   def current
-    render json: Sale.current_sales
+    @sale = Sale.current_sales.first
+    respond_with(@sale)
   end
 end

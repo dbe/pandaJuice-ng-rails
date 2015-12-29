@@ -1,6 +1,3 @@
-console.log("In app.js");
-console.log(Routes.current_sales_path);
-
 var pjApp = angular.module('pjApp', [
     'ngResource',
     'ui.router',
@@ -8,24 +5,14 @@ var pjApp = angular.module('pjApp', [
     'ng-rails-csrf'
 ]);
 
-/*
-pjApp.config(function(restmodProvider) {
-  restmodProvider.rebase('DefaultPacker');
-});
-*/
+pjApp.controller('pjController', ['$scope', '$resource', 'User', 'Item', 'Sale', function($scope, $resource, User, Item, Sale) {
 
-pjApp.controller('pjController', ['$scope', '$resource', 'User', 'Item', function($scope, $resource, User, Item) {
-  $resource(Routes.current_sales_path()).query({}, function(sales) {
-    $scope.current_sale = sales[0];
+  //TODO: I can take out the logging and the error handler. Just for debugging now
+  Sale.current().$then(function(sale) {
+    console.log("Fetched sale: ", sale);
+    $scope.current_sale = sale;
+  },
+  function(reason) {
+    console.log("Failed to fetch sale. Reason: ", reason);
   });
-
-  var u = User.$build({email : "sagacityuf4@gmail.com", password: "fakepass"});
-  u.$save();
-  console.log("User was: ", u);
-
-  var i = Item.$find(1);
-  console.log("Item was: ", i);
-
-  var newI = Item.$build({name: "wololo item"});
-  newI.$save();
 }]);
