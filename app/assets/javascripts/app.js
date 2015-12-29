@@ -12,7 +12,8 @@ pjApp.controller('pjController', ['$scope', '$resource', 'User', 'Item', functio
     $scope.current_sale = sales[0];
   });
 
-  var u = User.$find(1);
+  var u = User.$build();
+  u.$save();
   console.log("User was: ", u);
 
   var i = Item.$find(1);

@@ -7,7 +7,8 @@ class ItemsController < ApplicationController
   end
 
   def index
-    render json: Item.all
+    @items = Item.all
+    respond_with(@items)
   end
 
   def create
