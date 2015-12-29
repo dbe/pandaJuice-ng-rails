@@ -13,4 +13,6 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  get "*path" => 'root#index'
 end
