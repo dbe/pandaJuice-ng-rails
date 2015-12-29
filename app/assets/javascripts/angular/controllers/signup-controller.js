@@ -8,6 +8,11 @@
   SignupController.$inject = ['$scope', 'User'];
 
   function SignupController($scope, User) {
+    $scope.signup = function(form) {
+      console.log("Form: ", form);
+      window.oreo = form;
+    }
+    /*
     $scope.signup = function(user) {
       User.$create(user).$then(
         function(user) {
@@ -19,5 +24,6 @@
           window.oreo = user;
         });
     }
+    */
   }
 })();

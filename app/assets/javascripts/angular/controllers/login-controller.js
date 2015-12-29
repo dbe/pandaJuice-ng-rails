@@ -1,7 +1,15 @@
-var pjApp = angular.module('pjApp');
+(function() {
+  'use strict'
 
-pjApp.controller('loginController', ['$scope', 'User', function($scope, User) {
-  $scope.signup = function(user) {
-    console.log("In signup. User: ", user);
+  angular.
+    module('pjApp').
+    controller('loginController', LoginController);
+
+  LoginController.$inject = ['$scope', 'User'];
+
+  function LoginController($scope, User) {
+    $scope.login = function(form) {
+      console.log("In login. Form: ", form);
+    }
   }
-}]);
+})();

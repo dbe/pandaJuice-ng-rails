@@ -1,18 +1,18 @@
-%form{"ng-submit" => "signup(user)"}
-  .form-group
-    %label{:for => "email"}
+%form{:name => "signupForm", :novalidate => "", "ng-submit" => "signup(signupForm)"}
+  .form-group{"ng-class" => "{'has-error' : signupForm.email.$invalid}"}
+    %label.control-label{:for => "email"}
       Email
-    %input.form-control{:type => "email", :id => "email", :placeholder => "Email", "ng-model" => "user.email"}
+    %input.form-control{:type => "email", :name => "email", :placeholder => "Email", "ng-model" => "user.email"}
 
   .form-group
-    %label{:for => "password"}
+    %label.control-label{:for => "password"}
       Password
-    %input.form-control{:type => "password", :id => "password", :placeholder => "Password", "ng-model" => "user.password"}
+    %input.form-control{:type => "password", :name => "password", :placeholder => "Password", "ng-model" => "user.password"}
 
   .form-group
-    %label{:for => "password_confirmation"}
+    %label.control-label{:for => "password_confirmation"}
       Password
-    %input.form-control{:type => "password", :id => "password_confirmation", :placeholder => "Confirm Password", "ng-model" => "user.password_confirmation"}
+    %input.form-control{:type => "password", :name => "password_confirmation", :placeholder => "Confirm Password", "ng-model" => "user.password_confirmation"}
 
   .form-group
     %button.btn.btn-default{:type => "submit"}

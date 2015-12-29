@@ -1,13 +1,15 @@
-%form
+%form{:name => 'loginForm', "ng-submit" => "login(loginForm)"}
   .form-group
     %label{:for => "email"}
       Email
     %input.form-control{:type => "email", :id => "email", "ng-model" => "user.email"}
 
+  .form-group
     %label{:for => "password"}
       Password
     %input.form-control{:type => "password", :id => "password", "ng-model" => "user.password"}
 
-    %button.btn.btn-default{:type => "submit", "ng-click" => "signup(user)"}
+  .form-group
+    %button.btn.btn-default{:type => "submit"}
       Submit
 
