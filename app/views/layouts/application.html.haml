@@ -12,12 +12,14 @@
       %nav.navbar.navbar-default
         .container-fluid
           .navbar-header
-            .navbar-brand
+            %a.navbar-brand{"ui-sref" => "home"}
               Panda Juice
 
           .navbar-right
             %a.btn.btn-default.navbar-btn{"ui-sref" => "login"}
               Login
+            %a.btn.btn-default.navbar-btn{"ui-sref" => "signup"}
+              Sign Up
 
       .content{"ui-view": ""}
         = yield

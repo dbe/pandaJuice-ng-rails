@@ -18,6 +18,10 @@ pjApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     .state('login', {
       url: "/login",
       templateUrl: "assets/login.html"
+    })
+    .state('signup', {
+      url: "/signup",
+      templateUrl: "assets/signup.html"
     });
 });
 
