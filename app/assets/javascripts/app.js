@@ -2,7 +2,8 @@ var pjApp = angular.module('pjApp', [
     'ngResource',
     'ui.router',
     'restmod',
-    'ng-rails-csrf'
+    'ng-rails-csrf',
+    'ngMessages'
 ]);
 
 
