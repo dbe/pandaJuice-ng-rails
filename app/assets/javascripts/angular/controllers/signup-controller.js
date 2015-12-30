@@ -8,22 +8,28 @@
   SignupController.$inject = ['$scope', 'User'];
 
   function SignupController($scope, User) {
-    $scope.signup = function(form) {
-      console.log("Form: ", form);
+    $scope.signup = function(user, form) {
+      console.log("In signup, about to call server");
+
+      //TODO: Take me out
       window.oreo = form;
-    }
-    /*
-    $scope.signup = function(user) {
+
       User.$create(user).$then(
         function(user) {
           console.log("User created: ", user);
         },
-        function(reason) {
-          console.log("Signup failed: ", reason);
-          console.log("User on failure was: ", user);
-          window.oreo = user;
+        function(r) {
+          console.log("Handling error response");
+          var errorMap = r.$response.data.errors;
+
+          angular.forEach(errorMap, function(errors, attribute) {
+            form[attribute].$setTouched();
+
+            for(var i in errors) {
+              form[attribute].$setValidity(errors[i], false);
+            }
+          });
         });
     }
-    */
   }
 })();
