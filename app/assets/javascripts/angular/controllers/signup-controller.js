@@ -11,9 +11,6 @@
     $scope.signup = function(user, form) {
       console.log("In signup, about to call server");
 
-      //TODO: Take me out
-      window.oreo = form;
-
       User.$create(user).$then(
         function(user) {
           console.log("User created: ", user);
@@ -26,7 +23,7 @@
             form[attribute].$setTouched();
 
             for(var i in errors) {
-              form[attribute].$setValidity(errors[i], false);
+              form[attribute].$setValidity('server', false);
             }
           });
         });

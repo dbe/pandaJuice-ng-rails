@@ -9,11 +9,9 @@
           .form-group{"ng-class" => "{'has-error' : signupForm.email.$touched && signupForm.email.$invalid}"}
             %label.control-label{:for => "email"}
               Email
-            %input.form-control{:type => "email", :name => "email", :required => "", :placeholder => "Email", "ng-model" => "user.email"}
+            %input.form-control{:type => "email", :name => "email", :required => "", :placeholder => "Email", "ng-model" => "user.email", "server-error" => ""}
             .help-block{"ng-messages" => "signupForm.email.$error", "ng-show" => "signupForm.email.$touched"}
               %div{"ng-messages-include" => "assets/messages.html"}
-              %p
-                {{ signupForm.email.$error }}
 
           .form-group{"ng-class" => "{'has-error' : signupForm.password.$touched && signupForm.password.$invalid}"}
             %label.control-label{:for => "email"}
