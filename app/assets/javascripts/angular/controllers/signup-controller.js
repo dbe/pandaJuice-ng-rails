@@ -10,6 +10,7 @@
   function SignupController($scope, User) {
     $scope.signup = function(user, form) {
       console.log("In signup, about to call server");
+      $scope.serverErrors = {};
 
       User.$create(user).$then(
         function(user) {
@@ -21,12 +22,17 @@
 
           angular.forEach(errorMap, function(errors, attribute) {
             form[attribute].$setTouched();
-
-            for(var i in errors) {
-              form[attribute].$setValidity('server', false);
-            }
+            form[attribute].$setValidity('server', false);
+            $scope.serverErrors[attribute] = errorMessage(attribute, errors); 
           });
         });
+
+      //TODO: factor this out
+      function errorMessage(attribute, errors) {
+        //Capitalize the first letter of attribute
+        var capAttr = attribute.charAt(0).toUpperCase() + attribute.substring(1).toLowerCase();
+        return capAttr + " " + errors.join(',');
+      }
     }
   }
 })();
