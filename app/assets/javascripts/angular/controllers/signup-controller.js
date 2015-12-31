@@ -5,16 +5,16 @@
     module('pjApp').
     controller('signupController', SignupController);
 
-  SignupController.$inject = ['$scope', 'User'];
+  SignupController.$inject = ['$scope', 'User', '$state'];
 
-  function SignupController($scope, User) {
+  function SignupController($scope, User, $state) {
     $scope.signup = function(user, form) {
       console.log("In signup, about to call server");
       $scope.serverErrors = {};
 
       User.$create(user).$then(
         function(user) {
-          console.log("User created: ", user);
+          $state.go('home');
         },
         function(r) {
           console.log("Handling error response");
