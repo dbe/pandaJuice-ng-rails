@@ -21,5 +21,7 @@
             %a.btn.btn-default.navbar-btn{"ui-sref" => "signup"}
               Sign Up
 
+      %uib-alert{"ng-repeat" => "alert in alerts", :type => "{{alert.type}}", :close => "alert.close()"}
+        {{ alert.message }}
       .content{"ui-view": ""}
         = yield

@@ -14,6 +14,7 @@
 //= require angular-resource
 //= require angular-messages
 //= require angular-ui-router
+//= require angular-bootstrap
 //= require angular-restmod
 //= require ng-rails-csrf
 //
