@@ -1,5 +1,5 @@
 !!!
-%html{"ng-app" => "pjApp"}
+%html{"ng-app" => "pjApp", "ng-controller" => "applicationController"}
   %head
     %title PandaJuice
     = stylesheet_link_tag    'application', media: 'all'
@@ -16,10 +16,13 @@
               Panda Juice
 
           .navbar-right
-            %a.btn.btn-default.navbar-btn{"ui-sref" => "login"}
-              Login
-            %a.btn.btn-default.navbar-btn{"ui-sref" => "signup"}
-              Sign Up
+            .signin-links{"ng-show" => "!currentUser"}
+              %a.btn.btn-default.navbar-btn{"ui-sref" => "login"}
+                Login
+              %a.btn.btn-default.navbar-btn{"ui-sref" => "signup"}
+                Sign Up
+            .account-link{"ng-show" => "currentUser"}
+              You are logged in as: {{ currentUser.email }}
 
       %uib-alert{"ng-repeat" => "alert in alerts", :type => "{{alert.type}}", :close => "alert.close()"}
         {{ alert.message }}
