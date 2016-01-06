@@ -16,18 +16,16 @@
   
       promise.then(
         function success(response) {
-          console.log("Successfully logged in. Printed from session service");
           setCurrentUser(user);
         },
         function error(response) {
-          console.log("Failed to login. Printed from session service");
+          console.log("Failed to login: ", response);
         });
 
       return promise;
     }
 
     function logout() {
-      console.log("Logging out");
 
       $http.delete('/api/v1/users/sign_out').then(
         function success(response) {

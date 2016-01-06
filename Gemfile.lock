@@ -84,7 +84,6 @@ GEM
     mini_portile2 (2.0.0)
     minitest (5.8.3)
     multi_json (1.11.2)
-    ng-rails-csrf (0.1.0)
     nokogiri (1.6.7.1)
       mini_portile2 (~> 2.0.0.rc2)
     orm_adapter (0.5.0)
@@ -167,7 +166,6 @@ DEPENDENCIES
   haml-rails
   jbuilder (~> 2.0)
   js-routes
-  ng-rails-csrf
   pg
   rails (= 4.2.5)
   sass-rails (~> 5.0)

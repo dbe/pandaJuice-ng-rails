@@ -14,14 +14,12 @@
 
       promise.then(
         function success(response) {
-          console.log("Successfully logged in. Printed from login controller");
           alertService.addAlert('success', 'Successfully logged in');
           $state.go('home');
         },
         function error(response) {
-          console.log("Error logging in. Printed from login controller");
+          console.log("Error logging in: ", response);
         });
     }
   }
-
 })();
