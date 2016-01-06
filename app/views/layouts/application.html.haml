@@ -15,7 +15,7 @@
             %a.navbar-brand{"ui-sref" => "home"}
               Panda Juice
 
-          .navbar-right
+          %ul.nav.navbar-nav.navbar-right
             .signin-links{"ng-show" => "!currentUser"}
               %a.btn.btn-default.navbar-btn{"ui-sref" => "login"}
                 Login
@@ -23,6 +23,8 @@
                 Sign Up
             .account-link{"ng-show" => "currentUser"}
               You are logged in as: {{ currentUser.email }}
+              %a{"ng-click" => "logout()", :href => "#"}
+                Log out
 
       %uib-alert{"ng-repeat" => "alert in alerts", :type => "{{alert.type}}", :close => "alert.close()"}
         {{ alert.message }}

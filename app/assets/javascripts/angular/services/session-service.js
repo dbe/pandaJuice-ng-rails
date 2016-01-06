@@ -5,23 +5,42 @@
     module('pjApp').
     factory('sessionService', sessionService);
 
-  sessionService.$inject = ['$rootScope'];
+  sessionService.$inject = ['$rootScope', '$http', 'alertService'];
 
-  function sessionService($rootScope) {
+  function sessionService($rootScope, $http, alertService) {
 
     $rootScope.currentUser = undefined;
 
     function login(user) {
-      console.log("Logging in user: ", user);
+      var promise = $http.post('api/v1/users/sign_in', user)
+  
+      promise.then(
+        function success(response) {
+          console.log("Successfully logged in. Printed from session service");
+          setCurrentUser(user);
+        },
+        function error(response) {
+          console.log("Failed to login. Printed from session service");
+        });
+
+      return promise;
     }
 
     function logout() {
       console.log("Logging out");
-      $rootScope.currentUser = undefined;
+
+      $http.delete('/api/v1/users/sign_out').then(
+        function success(response) {
+          console.log("Successfully logged out: ", response);
+          setCurrentUser(undefined);
+          alertService.addAlert('success', 'Successfully logged out');
+        },
+        function error(response) {
+          console.log("Failed to logout: ", response);
+        });
     }
 
     function setCurrentUser(user) {
-      console.log("Setting user as current user: ", user);
       $rootScope.currentUser = user;
     }
 

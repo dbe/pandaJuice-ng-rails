@@ -1,4 +1,7 @@
 class Auth::SessionsController < Devise::SessionsController
+  respond_to :json
+  wrap_parameters :user
+
 # before_filter :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
@@ -7,15 +10,9 @@ class Auth::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  def create
-    print "Before super do"
-    byebug
-    super do |u|
-      print "In super do"
-      print u.inspect
-    end
-    print "After super do"
-  end
+  # def create
+  #   super
+  # end
 
   # DELETE /resource/sign_out
   # def destroy

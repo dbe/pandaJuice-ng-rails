@@ -5,7 +5,10 @@
   module('pjApp').
   controller('applicationController', applicationController);
 
-  function applicationController() {
-    console.log("In application controller");
+  applicationController.$inject = ['$scope', 'sessionService'];
+
+  function applicationController($scope, sessionService) {
+    $scope.logout = sessionService.logout;
   }
+
 })();
