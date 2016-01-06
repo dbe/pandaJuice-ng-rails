@@ -3,7 +3,6 @@ var pjApp = angular.module('pjApp', [
     'ui.router',
     'ui.bootstrap',
     'restmod',
-    'ng-rails-csrf',
     'ngMessages'
 ]);
 
@@ -47,5 +46,4 @@ pjApp.controller('pjController', ['$scope', '$resource', 'User', 'Item', 'Sale',
   function(reason) {
     console.log("Failed to fetch user. Reason: ", reason);
   });
-
 }]);

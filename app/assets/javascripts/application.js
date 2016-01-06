@@ -16,7 +16,6 @@
 //= require angular-ui-router
 //= require angular-bootstrap
 //= require angular-restmod
-//= require ng-rails-csrf
 //
 //= require js-routes
 //
