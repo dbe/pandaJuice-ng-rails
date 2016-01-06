@@ -16,15 +16,21 @@
       angular.forEach(errorMap, function(errors, attribute) {
         form[attribute].$setTouched();
         form[attribute].$setValidity('server', false);
-        $scope.serverErrors[attribute] = formatErrorMessage(attribute, errors); 
+
+        $scope.serverErrors[attribute] = formatErrorMessages(attribute, errors); 
       });
     }
 
     //TODO: Potentially factor this out to a directive since its format/view type code.
-    function formatErrorMessage(attribute, errors) {
-      //Capitalize the first letter of attribute
-      var capAttr = attribute.charAt(0).toUpperCase() + attribute.substring(1).toLowerCase();
-      return capAttr + " " + errors.join(',');
+    function formatErrorMessages(attribute, errors) {
+      var errorMessages = [];
+
+      angular.forEach(errors, function(error) {
+        var message = s.humanize(attribute) + " " + error;
+        errorMessages.push(message);
+      });
+
+      return errorMessages;
     }
 
     return {

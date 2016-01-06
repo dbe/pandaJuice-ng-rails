@@ -13,26 +13,30 @@
             %input.form-control{:type => "email", :name => "email", :required => "", :placeholder => "Email", "ng-model" => "user.email", "server-error" => ""}
             .help-block{"ng-messages" => "signupForm.email.$error", "ng-show" => "signupForm.email.$touched"}
               %div{"ng-messages-include" => "assets/messages.html"}
-              %p{"ng-message" => "server"}
-                {{ serverErrors.email }}
+              %div{"ng-message" => "server"}
+                %p{"ng-repeat" => "err in serverErrors.email"}
+                  {{ err }}
 
           .form-group{"ng-class" => "{'has-error' : signupForm.password.$touched && signupForm.password.$invalid}"}
-            %label.control-label{:for => "email"}
+            %label.control-label{:for => "password"}
               Password
             %input.form-control{:type => "password", :name => "password", :required => "", :placeholder => "Password", "ng-model" => "user.password", "server-error" => ""}
             .help-block{"ng-messages" => "signupForm.password.$error", "ng-show" => "signupForm.password.$touched"}
               %div{"ng-messages-include" => "assets/messages.html"}
-              %p{"ng-message" => "server"}
-                {{ serverErrors.password }}
+              %div{"ng-message" => "server"}
+                %p{"ng-repeat" => "err in serverErrors.password"}
+                  {{ err }}
+ 
 
           .form-group{"ng-class" => "{'has-error' : signupForm.password_confirmation.$touched && signupForm.password_confirmation.$invalid}"}
-            %label.control-label{:for => "email"}
+            %label.control-label{:for => "password_confirmation"}
               Confirm Password
             %input.form-control{:type => "password", :name => "password_confirmation", :required => "", :placeholder => "Confirm Password", "ng-model" => "user.password_confirmation", "server-error" => ""}
             .help-block{"ng-messages" => "signupForm.password_confirmation.$error", "ng-show" => "signupForm.password_confirmation.$touched"}
               %div{"ng-messages-include" => "assets/messages.html"}
-              %p{"ng-message" => "server"}
-                {{ serverErrors.password_confirmation }}
+              %div{"ng-message" => "server"}
+                %p{"ng-repeat" => "err in serverErrors.password_confirmation"}
+                  {{ err }}
 
           .form-group
             %button.btn.btn-default{:type => "submit"}

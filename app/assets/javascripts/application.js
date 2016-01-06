@@ -17,6 +17,7 @@
 //= require angular-bootstrap
 //= require angular-restmod
 //
+//= require underscore.string
 //= require js-routes
 //
 //= require app
