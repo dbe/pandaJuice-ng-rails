@@ -1,15 +1,33 @@
-%form{:name => 'loginForm', "ng-submit" => "login(user)"}
-  .form-group
-    %label{:for => "email"}
-      Email
-    %input.form-control{:type => "email", :id => "email", "ng-model" => "user.email"}
+.row
+  .col-md-8
+    .panel.panel-default
+      .panel-heading
+        %h1.panel-title
+          Login
 
-  .form-group
-    %label{:for => "password"}
-      Password
-    %input.form-control{:type => "password", :id => "password", "ng-model" => "user.password"}
+      .panel-body
+        %form{:name => 'loginForm', :novalidate => "", "ng-submit" => "login(user, loginForm)"}
+          .form-group{"ng-class" => "{'has-error' : loginForm.email.$touched && loginForm.email.$invalid}"}
+            %label.control-label{:for => "email"}
+              Email
+            %input.form-control{:type => "email", :name => "email", :required => "", :placeholder => "Email", "ng-model" => "user.email", "server-error" => ""}
+            .help-block{"ng-messages" => "loginForm.email.$error", "ng-show" => "loginForm.email.$touched"}
+              %div{"ng-messages-include" => "assets/messages.html"}
+              %div{"ng-message" => "server"}
+                %p{"ng-repeat" => "err in serverErrors.email"}
+                  {{ err }}
 
-  .form-group
-    %button.btn.btn-default{:type => "submit"}
-      Submit
+          .form-group{"ng-class" => "{'has-error' : loginForm.password.$touched && loginForm.password.$invalid}"}
+            %label.control-label{:for => "password"}
+              Password
+            %input.form-control{:type => "password", :name => "password", :required => "", :placeholder => "Password", "ng-model" => "user.password", "server-error" => ""}
+            .help-block{"ng-messages" => "loginForm.password.$error", "ng-show" => "loginForm.password.$touched"}
+              %div{"ng-messages-include" => "assets/messages.html"}
+              %div{"ng-message" => "server"}
+                %p{"ng-repeat" => "err in serverErrors.password"}
+                  {{ err }}
+
+          .form-group
+            %button.btn.btn-default{:type => "submit"}
+              Submit
 
