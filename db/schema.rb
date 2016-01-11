@@ -11,44 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160111025222) do
+ActiveRecord::Schema.define(version: 20160111052046) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "item_options", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.string   "value",      null: false
-    t.integer  "item_id",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "items", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "sku_id",     null: false
-  end
-
-  create_table "sale_items", force: :cascade do |t|
-    t.integer "sale_id"
-    t.integer "item_id"
-    t.integer "quantity"
-    t.decimal "cost",     precision: 8, scale: 2
-  end
-
   create_table "sales", force: :cascade do |t|
-    t.datetime "start"
-    t.datetime "finish"
+    t.datetime "start",      null: false
+    t.datetime "finish",     null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "skus", force: :cascade do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|
