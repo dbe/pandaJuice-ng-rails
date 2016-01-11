@@ -17,13 +17,14 @@ ActiveRecord::Schema.define(version: 20160111062442) do
   enable_extension "plpgsql"
 
   create_table "item_options", force: :cascade do |t|
-    t.string   "name",       null: false
     t.integer  "item_id",    null: false
+    t.string   "name",       null: false
+    t.string   "value",      null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "item_options", ["name", "item_id"], name: "index_item_options_on_name_and_item_id", unique: true, using: :btree
+  add_index "item_options", ["name", "value", "item_id"], name: "index_item_options_on_name_and_value_and_item_id", unique: true, using: :btree
 
   create_table "items", force: :cascade do |t|
     t.string   "name",        null: false
