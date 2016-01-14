@@ -25,8 +25,5 @@ sc_3_30 = item.variants.create(sku: "#{item.name}-#{nic3.value}-#{size30.value}"
 sc_3_30.item_options << nic3
 sc_3_30.item_options << size30
 
-sale.variants << sc_3_10
-sale.variants << sc_3_30
-
-
-
+sale.sale_variants.create(:quantity => 30, :cost => 12.99, :variant => sc_3_10)
+sale.sale_variants.create(:quantity => 5, :cost => 7.00, :variant => sc_3_30)

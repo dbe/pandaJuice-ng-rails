@@ -38,16 +38,21 @@ ActiveRecord::Schema.define(version: 20160111221405) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "sale_variants", force: :cascade do |t|
+    t.integer "sale_id"
+    t.integer "variant_id"
+    t.integer "quantity"
+    t.decimal "cost",       precision: 8, scale: 2
+  end
+
+  add_index "sale_variants", ["sale_id"], name: "index_sale_variants_on_sale_id", using: :btree
+  add_index "sale_variants", ["variant_id"], name: "index_sale_variants_on_variant_id", using: :btree
+
   create_table "sales", force: :cascade do |t|
     t.datetime "start",      null: false
     t.datetime "finish",     null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "sales_variants", id: false, force: :cascade do |t|
-    t.integer "sale_id",    null: false
-    t.integer "variant_id", null: false
   end
 
   create_table "users", force: :cascade do |t|
