@@ -32,6 +32,7 @@ pjApp.controller('pjController', ['$scope', '$resource', 'User', 'Item', 'Sale',
 
   //TODO: I can take out the logging and the error handler. Just for debugging now
   Sale.current().$then(function(sale) {
+    console.log("Current sale is: ", sale);
     $scope.current_sale = sale;
   },
   function(reason) {
