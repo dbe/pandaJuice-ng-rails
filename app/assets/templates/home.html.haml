@@ -10,5 +10,25 @@
         Start: {{ current_sale.start }}
       %p
         Finish: {{ current_sale.finish }}
+
+    %h3
+      Items for sale
+    %ul.items{"ng-repeat" => "item in current_sale.items"}
+      %li
+        {{ item.name }}
+
+    %h3
+      Item Variants
+    %ul.variants{"ng-repeat" => "variant in current_sale.variants"}
+      %li
+        {{ variant.sku }}
+      %ul.options{"ng-repeat" => "option in variant.item_options"}
+        %li
+          {{ option.name }} = {{ option.value }}
+        
+
+
+
+
     .no-sale{"ng-show" => "!current_sale"}
       Sorry, there is no sale going on
