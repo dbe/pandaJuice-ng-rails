@@ -4,7 +4,12 @@ class SalesController < ApplicationController
   def current
     #@sale = Sale.current_sales.first
     #TODO: Put this back in the model and use real logic for current
-    @sale = Sale.includes(:items, variants: :item_options).first
+    @sale = Sale.includes(:items, {
+      sale_variants: {
+        variant: :item_options
+      }
+    }).first
+    
     respond_with(@sale.to_json(:include => [:items, :variants => {:include => :item_options}]))
   end
 end
