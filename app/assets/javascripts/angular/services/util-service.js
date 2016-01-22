@@ -23,15 +23,9 @@
           method: 'GET'
         }).$then(function(o) {
 
-          //TODO: TAKE ME OUT OREO
-          console.log("Raw response object from utilService: ", o);
-
           var data = o.$response.data;
 
-          //TODO: TAKE ME OUT OREO
-          console.log("Data object extracted in utilService: ", data);
-
-          if(data === null || data.id === undefined) {
+          if(!data) {
             return $q.reject("None found.");
           } else {
             this.$decode(data);

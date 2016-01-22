@@ -10,6 +10,6 @@ class SalesController < ApplicationController
       }
     }).first
     
-    respond_with(@sale.to_json(:include => [:items, :variants => {:include => :item_options}]))
+    respond_with @sale
   end
 end

@@ -7,7 +7,11 @@ var pjApp = angular.module('pjApp', [
 ]);
 
 
-pjApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+
+
+
+
+pjApp.config(function($stateProvider, $urlRouterProvider, $locationProvider, restmodProvider) {
   $urlRouterProvider.otherwise("/");
   $locationProvider.html5Mode(true);
 
@@ -26,6 +30,9 @@ pjApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: "assets/signup.html",
       controller: 'signupController'
     });
+
+  //This shuts up the warning about not picking a base style
+  restmodProvider.rebase('AMSApi');
 });
 
 pjApp.controller('pjController', ['$scope', '$resource', 'User', 'Item', 'Sale', 'sessionService', function($scope, $resource, User, Item, Sale, sessionService) {
