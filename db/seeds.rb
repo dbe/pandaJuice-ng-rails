@@ -27,3 +27,6 @@ sc_3_30.item_options << size30
 
 sale.sale_variants.create(:quantity => 30, :cost => 12.99, :variant => sc_3_10)
 sale.sale_variants.create(:quantity => 5, :cost => 7.00, :variant => sc_3_30)
+
+user = User.create(email: "admin@test.com", password: "password")
+user.cart_variants.create(variant: sc_3_10)

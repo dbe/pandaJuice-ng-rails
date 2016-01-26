@@ -6,6 +6,8 @@ class Variant < ActiveRecord::Base
   has_many :sale_variants
   has_many :sales, :through => :sale_variants
 
+  has_many :cart_variants
+
   #TODO: Probably take this out. It does more db calls
   #Just for convinience of testing
   def pretty_print
