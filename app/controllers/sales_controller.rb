@@ -9,7 +9,7 @@ class SalesController < ApplicationController
         variant: :item_options
       }
     }).first
-    
+
     respond_with @sale
   end
 end
