@@ -17,7 +17,8 @@
 //= require angular-bootstrap
 //
 //= require angular-restmod
-//= require angular-restmod/dist/styles/ams #This is the built in API style with restmod. It shuts up the warning about not picking a base style
+//  This is the built in API style with restmod. It shuts up the warning about not picking a base style
+//= require angular-restmod/dist/styles/ams
 //
 //= require underscore.string
 //= require js-routes
