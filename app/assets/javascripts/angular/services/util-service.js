@@ -17,22 +17,24 @@
       return function() {
         //This function gets called in the context of the resource it will be fetching. Thus new this() works.
         var instance = new this();
+        var url = this.$url() + urlSuffix;
 
-        return instance.$send({
-          url: this.$url() + urlSuffix,
-          method: 'GET'
-        }).$then(function(o) {
+        instance.$action(function() {
+          var request = { method: 'GET', url: url};
 
-          var data = o.$response.data;
-
-          if(!data) {
-            return $q.reject("None found.");
-          } else {
-            this.$decode(data);
-          }
+          //This is a paste of the core part of the $fetch function in restmod. 
+          //As of now there is no good way I can find to override the url for the fetch, so I have to do this
+          this.$dispatch('before-fetch', [request]);
+          this.$send(request, function(_response) {
+            this.$unwrap(_response.data);
+            this.$dispatch('after-fetch', [_response]);
+          }, function(_response) {
+            this.$dispatch('after-fetch-error', [_response]);
+          });
         });
-      }
 
+        return instance;
+      }
     }
 
     return {
@@ -41,5 +43,4 @@
       }
     }
   }
-
 })();

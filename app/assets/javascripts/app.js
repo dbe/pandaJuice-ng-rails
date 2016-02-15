@@ -54,4 +54,5 @@ pjApp.controller('pjController', ['$scope', '$resource', 'User', 'Item', 'Sale',
   function(reason) {
     console.log("Failed to fetch user. Reason: ", reason);
   });
+
 }]);

@@ -12,4 +12,9 @@ class SalesController < ApplicationController
 
     respond_with @sale
   end
+
+  def show
+    @sale = Sale.find(params[:id])
+    respond_with @sale
+  end
 end
